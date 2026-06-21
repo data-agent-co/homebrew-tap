@@ -4,22 +4,22 @@ cask "dataagent" do
 
   on_macos do
     on_intel do
-      sha256 "46a5916c772defbc149e015689b419ff7f107950ce0f7d9938b438ac86f5d2be"
+      sha256 "7f80f72e537dd13fa473aebf3b17657db33cb4b76a9fb9e5f8d73eded1900dad"
       url "https://github.com/data-agent-co/homebrew-tap/releases/download/v#{version}/dataagent_#{version}_darwin_amd64.tar.gz"
     end
     on_arm do
-      sha256 "5917765928e788f26db6dd1f562ce641dea2e62b2c883475d62a379c93b25fe1"
+      sha256 "6f5ffda00ecc81f645d0e9fc4847c7b313cc7283686bae27225d852b035cbd24"
       url "https://github.com/data-agent-co/homebrew-tap/releases/download/v#{version}/dataagent_#{version}_darwin_arm64.tar.gz"
     end
   end
 
   on_linux do
     on_intel do
-      sha256 "c54e89dbbe2da9bf44e4ed0e5080410337be56464b93655c9685a6ce4002b536"
+      sha256 "30d6f135ccf1732a53794fe3ca75551cfffaa149972d6c7ea03bf31644e4d978"
       url "https://github.com/data-agent-co/homebrew-tap/releases/download/v#{version}/dataagent_#{version}_linux_amd64.tar.gz"
     end
     on_arm do
-      sha256 "d967d46a37b572771e201efcf548452a250cc02f6a62c347f92a9922af662361"
+      sha256 "fa8b5a7d2c44fe17a7abb5d9158d4a609ed7e701ad603a876e4705e35b4a9eff"
       url "https://github.com/data-agent-co/homebrew-tap/releases/download/v#{version}/dataagent_#{version}_linux_arm64.tar.gz"
     end
   end
@@ -33,16 +33,22 @@ cask "dataagent" do
   end
 
   binary "dataagent"
+  bash_completion "completions/dataagent.bash"
+  fish_completion "completions/dataagent.fish"
+  zsh_completion "completions/dataagent.zsh"
 
   postflight do
     if OS.mac?
       system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/dataagent"]
     end
   end
-  generate_completions_from_executable "dataagent", "completion",
-    shell_parameter_format: :cobra,
-    shells: [:bash, :zsh, :fish]
 
   # No zap stanza required
 
+  caveats <<~EOS
+    Shell completions (bash, zsh, fish) were installed.
+    Open a new terminal to start using them.
+    If zsh completions don't appear, initialize Homebrew's completions:
+    https://docs.brew.sh/Shell-Completion
+  EOS
 end
