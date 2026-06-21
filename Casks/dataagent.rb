@@ -4,22 +4,22 @@ cask "dataagent" do
 
   on_macos do
     on_intel do
-      sha256 "7f80f72e537dd13fa473aebf3b17657db33cb4b76a9fb9e5f8d73eded1900dad"
+      sha256 "b0635008e6f866d332ffa8baf669de762eba43b423b8cc0029f8afcaa3fed25f"
       url "https://github.com/data-agent-co/homebrew-tap/releases/download/v#{version}/dataagent_#{version}_darwin_amd64.tar.gz"
     end
     on_arm do
-      sha256 "6f5ffda00ecc81f645d0e9fc4847c7b313cc7283686bae27225d852b035cbd24"
+      sha256 "fd6230d51a54888074e97d7f3293a511ac47b4cb9a3349189b7ab1fbcbe3ff02"
       url "https://github.com/data-agent-co/homebrew-tap/releases/download/v#{version}/dataagent_#{version}_darwin_arm64.tar.gz"
     end
   end
 
   on_linux do
     on_intel do
-      sha256 "30d6f135ccf1732a53794fe3ca75551cfffaa149972d6c7ea03bf31644e4d978"
+      sha256 "6a06b5f28f1c8a85fca9ce5f549fc1db6bad96cdf9d20ac4988d8f7ea8c10cb2"
       url "https://github.com/data-agent-co/homebrew-tap/releases/download/v#{version}/dataagent_#{version}_linux_amd64.tar.gz"
     end
     on_arm do
-      sha256 "fa8b5a7d2c44fe17a7abb5d9158d4a609ed7e701ad603a876e4705e35b4a9eff"
+      sha256 "ad6516cf3934f5170595ab8e63ee7f99e662a37a7daf10b44dbc5776c66fbac4"
       url "https://github.com/data-agent-co/homebrew-tap/releases/download/v#{version}/dataagent_#{version}_linux_arm64.tar.gz"
     end
   end
